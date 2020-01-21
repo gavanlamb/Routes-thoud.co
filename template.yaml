@@ -34,7 +34,7 @@ Resources:
                         - 10 ALT3.ASPMX.L.GOOGLE.COM.
                         - 10 ALT4.ASPMX.L.GOOGLE.COM.
     RootRecord:
-        Type: AWS::Route53::RecordSetGroup
+        Type: AWS::Route53::RecordSet
         Properties:
             HostedZoneId: !Ref Zone
             Name: !Sub ${ZoneAddress}.
