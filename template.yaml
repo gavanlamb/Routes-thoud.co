@@ -35,3 +35,14 @@ Resources:
                         - 5 ALT2.ASPMX.L.GOOGLE.COM.
                         - 10 ALT3.ASPMX.L.GOOGLE.COM.
                         - 10 ALT4.ASPMX.L.GOOGLE.COM.
+    GoogleSiteVerification:
+        Type: AWS::Route53::RecordSetGroup
+        Properties:
+            HostedZoneId:
+                Ref: Zone
+            RecordSets:
+                -   Name: @
+                    Type: TXT
+                    TTL: '300'
+                    ResourceRecords:
+                        - '"google-site-verification=2ZPxmwFoqyLpoP40cQt1evwh0Ht-a_Y6jcOCY3anxao"'
