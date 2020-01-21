@@ -15,12 +15,10 @@ Outputs:
             Name: ThoudCoRoutes:ZoneId
 Resources:
     Zone:
-        DeletionPolicy: Retain
         Type: AWS::Route53::HostedZone
         Properties:
             Name: !Sub ${ZoneAddress}.
     GoogleMx:
-        DeletionPolicy: Retain
         Type: AWS::Route53::RecordSetGroup
         Properties:
             HostedZoneId:
@@ -35,3 +33,12 @@ Resources:
                         - 5 ALT2.ASPMX.L.GOOGLE.COM.
                         - 10 ALT3.ASPMX.L.GOOGLE.COM.
                         - 10 ALT4.ASPMX.L.GOOGLE.COM.
+    RootRecord:
+        Type: AWS::Route53::RecordSetGroup
+        Properties:
+            HostedZoneId: !Ref Zone
+            Name: !Sub ${ZoneAddress}.
+            Type: A
+            TTL: '300'
+            ResourceRecords:
+                - 127.0.0.1
