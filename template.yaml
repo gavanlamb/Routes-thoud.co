@@ -41,7 +41,7 @@ Resources:
             HostedZoneId:
                 Ref: Zone
             RecordSets:
-                -   Name: @
+                -   Name: '@'
                     Type: TXT
                     TTL: '300'
                     ResourceRecords:
